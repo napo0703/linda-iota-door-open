@@ -24,3 +24,7 @@ class IotaDoor
     @arduino.servo_write 10, 90
   end
 end
+
+if $0 == __FILE__
+  IotaDoor.new.open
+end

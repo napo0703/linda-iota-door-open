@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# dependencies
 require 'rubygems'
 require 'sinatra/rocketio/linda/client'
 require File.expand_path 'lib/iota_door', File.dirname(__FILE__)
