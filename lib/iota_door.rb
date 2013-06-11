@@ -1,36 +1,26 @@
-# -*- coding:utf-8 -*-
-#! /usr/bin/env/ruby
-
+#!/usr/bin/env ruby
 require 'arduino_firmata'
 
-class Iota_door
+class IotaDoor
 
   def initialize
-    @arduino = ArduinoFirmata.connect
-    puts "Arduino connect!! #{@arduino}"
+    @arduino = ArduinoFirmata.connect ENV["ARDUINO"]
+    puts "Arduino connect!! (firmata version v#{@arduino.version})"
   end
 
   def open
     puts "90 -> 0"
-    90.downto(0) do |i|
-      @arduino.servo_write 10, i
-      sleep 0.01
-    end
+    @arduino.servo_write 10, 90
+    sleep 1
 
+    @arduino.servo_write 10, 0
     sleep 7
 
     puts "0 -> 180"
-    0.upto(180) do |i|
-      @arduino.servo_write 10, i
-      sleep 0.01
-    end
-
+    @arduino.servo_write 10, 180
     sleep 1
 
     puts "180 -> 90"
-    180.downto(90) do |i|
-      @arduino.servo_write 10, i
-      sleep 0.01
-    end
+    @arduino.servo_write 10, 90
   end
 end

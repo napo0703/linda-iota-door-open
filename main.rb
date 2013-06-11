@@ -1,4 +1,4 @@
-#! /usr/bin/env/ruby
+#!/usr/bin/env ruby
 # dependencies
 require 'rubygems'
 require 'sinatra/rocketio/linda/client'
@@ -7,7 +7,7 @@ require File.expand_path 'lib/iota_door', File.dirname(__FILE__)
 url   =  "http://linda.masuilab.org"
 space =  "iota"
 
-door = Iota_door.new
+door = IotaDoor.new
 
 linda = Sinatra::RocketIO::Linda::Client.new url
 ts = linda.tuplespace[space]
