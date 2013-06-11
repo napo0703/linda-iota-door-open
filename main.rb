@@ -4,11 +4,12 @@
 # dependencies
 require 'rubygems'
 require 'sinatra/rocketio/linda/client'
+require 'sinatra'
 
 require './lib/iota_door.rb'
 
-url =   ENV["LINDA_BASE"]  || ARGV.shift || "http://linda.masuilab.org"
-space = ENV["LINDA_SPACE"] || "iota"
+url   =  "http://linda.masuilab.org"
+space =  "iota"
 
 door = Iota_door.new
 
@@ -18,7 +19,7 @@ ts = linda.tuplespace[space]
 last_at = Time.now
 
 linda.io.on :connect do  ## RocketIO's "connect" event
-  puts "connect!! <#{linda.io.session}> (#{linda.io.type})"
+  puts "Linda connect!! <#{linda.io.session}> (#{linda.io.type})"
 
   ts.watch ["door","open"] do |tuple|
     puts tuple
@@ -35,5 +36,5 @@ linda.wait
 
 # GET API
 get '/open' do
-  open
+  door.open
 end

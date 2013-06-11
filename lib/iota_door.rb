@@ -3,14 +3,17 @@
 
 require 'arduino_firmata'
 
-
 class Iota_door
-  arduino = ArduinoFirmata.connect
+
+  def initialize
+    @arduino = @arduinoFirmata.connect
+    puts "Arduino connect!! #{@arduino}"
+  end
 
   def open
     puts "90 -> 0"
     90.downto(0) do |i|
-      arduino.servo_write 10, i
+      @arduino.servo_write 10, i
       sleep 0.01
     end
 
@@ -18,7 +21,7 @@ class Iota_door
 
     puts "0 -> 180"
     0.upto(180) do |i|
-      arduino.servo_write 10, i
+      @arduino.servo_write 10, i
       sleep 0.01
     end
 
@@ -26,7 +29,7 @@ class Iota_door
 
     puts "180 -> 90"
     180.downto(90) do |i|
-      arduino.servo_write 10, i
+      @arduino.servo_write 10, i
       sleep 0.01
     end
   end
