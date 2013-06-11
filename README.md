@@ -29,6 +29,8 @@ https://www.youtube.com/watch?v=8yryQBdIyvs
 
 ## 実行
 
+    % export LINDA_BASE=http://linda.masuilab.org
+    % export LINDA_SPACE=iota
     % bundle exec ruby main.rb
 
 
