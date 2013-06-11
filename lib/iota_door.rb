@@ -6,7 +6,7 @@ require 'arduino_firmata'
 class Iota_door
 
   def initialize
-    @arduino = @arduinoFirmata.connect
+    @arduino = ArduinoFirmata.connect
     puts "Arduino connect!! #{@arduino}"
   end
 

@@ -22,9 +22,10 @@ linda.io.on :connect do  ## RocketIO's "connect" event
   puts "Linda connect!! <#{linda.io.session}> (#{linda.io.type})"
 
   ts.watch ["door","open"] do |tuple|
-    puts tuple
-    door.open
-    ts.write ["door","open","success!"] if last_at < Time.now+5
+    door.open if Time.now - last_at >= 1
+    sleep 2
+    ts.write ["door","open","success"] if tuple[2] != "success"
+    last_at = Time.now
   end
 end
 
