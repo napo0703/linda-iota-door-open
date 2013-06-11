@@ -1,12 +1,8 @@
-# -*- coding: utf-8 -*-
 #! /usr/bin/env/ruby
-
 # dependencies
 require 'rubygems'
 require 'sinatra/rocketio/linda/client'
-require 'sinatra'
-
-require './lib/iota_door.rb'
+require File.expand_path 'lib/iota_door', File.dirname(__FILE__)
 
 url   =  "http://linda.masuilab.org"
 space =  "iota"
@@ -34,8 +30,3 @@ linda.io.on :disconnect do
 end
 
 linda.wait
-
-# GET API
-get '/open' do
-  door.open
-end
