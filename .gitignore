@@ -1,5 +1,6 @@
+*~
+*#*
 *.swp
 .DS_Store
-Gemfile.lock
 vendor/bundle
 .bundle
