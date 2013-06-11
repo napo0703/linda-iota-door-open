@@ -11,16 +11,18 @@ door = IotaDoor.new
 linda = Sinatra::RocketIO::Linda::Client.new url
 ts = linda.tuplespace[space]
 
-last_at = Time.now
+working = false
 
 linda.io.on :connect do  ## RocketIO's "connect" event
   puts "Linda connect!! <#{linda.io.session}> (#{linda.io.type})"
-
   ts.watch ["door","open"] do |tuple|
-    door.open if Time.now - last_at >= 1
+    next if working
+    next if tuple.size != 2
+    working = true
+    door.open
     sleep 2
-    ts.write ["door","open","success"] if tuple[2] != "success"
-    last_at = Time.now
+    ts.write ["door","open","success"]
+    working = false
   end
 end
 
