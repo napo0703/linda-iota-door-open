@@ -1,7 +1,7 @@
-Iota-Door Linda Client
+Linda Iota Door Open
 ======================
 
-- https://github.com/masuilab/iota-door-linda-client/issues
+- https://github.com/masuilab/linda-iota-door-open
 - やまだくんがドアを開けた
 - ["door", "open"]を読んでドアを開ける
   - [linda-base](http://linda.masuilab.org/iota/door/open)から開けられる
