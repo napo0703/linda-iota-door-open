@@ -17,6 +17,7 @@ linda.io.on :connect do  ## RocketIO's "connect" event
   ts.watch ["door","open"] do |tuple|
     next if working
     next if tuple.size != 2
+    next if arduino.analog_read 0 > 80
     working = true
     door.open
     sleep 2
