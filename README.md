@@ -2,10 +2,10 @@ Linda Iota Door Open
 ======================
 
 - https://github.com/masuilab/linda-iota-door-open
-- やまだくんがドアを開けた
 - ["door", "open"]を読んでドアを開ける
+- ["door", "close"]を読んでドアを閉める
   - [linda-base](http://linda.masuilab.org/iota/door/open)から開けられる
-- ["door", "open", "success"]を書き込む
+  - [linda-base](http://linda.masuilab.org/iota/door/close)から閉められる
 
 
 ## Demo
@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=8yryQBdIyvs
     % bundle install
 
 
-サーボモータをArduinoの10番ピンに接続する
+サーボモータをArduinoの9番ピンに接続する
 
 
 ## 使用するArduinoを指定（必要あれば）
