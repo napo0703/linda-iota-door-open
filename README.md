@@ -34,13 +34,7 @@ https://www.youtube.com/watch?v=8yryQBdIyvs
     % bundle exec ruby main.rb
 
 
-## ドア開け単体でテスト
-
-    % bundle exec ruby lib/iota_door.rb
-
-
 ## サービスとしてインストール
------------------------------
 
 for launchd (Mac OSX)
 

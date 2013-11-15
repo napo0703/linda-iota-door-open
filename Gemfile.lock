@@ -63,3 +63,4 @@ DEPENDENCIES
   arduino_firmata
   em-rocketio-linda-client
   foreman
+  eventmachine

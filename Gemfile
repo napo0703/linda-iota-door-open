@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
 gem "foreman"
-gem "sinatra-rocketio-linda"
+gem "em-rocketio-linda-client"
+gem "eventmachine"
 gem "arduino_firmata"
