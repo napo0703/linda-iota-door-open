@@ -44,6 +44,14 @@ EM::run do
       ts.write tuple
       last_at = Time.now
     end
+
+    EM::add_periodic_timer 5 do
+      if arduino.analog_read(2) < 512
+        ts.write ["door","state","close"]
+      else
+        ts.wirte ["door","state","open"]
+      end
+    end
   end
 
   linda.io.on :disconnect do
